@@ -1,4 +1,5 @@
 #include "framebuffer.h"
+#include <cmath>
 
 FrameBuffer::FrameBuffer(float width, float height, int precision, int component, int wrap, int filt) :cubeBuffer(NULL) {
 	this->width = width;
@@ -151,8 +152,8 @@ void FrameBuffer::useCube(int i, int mip) {
 	if (!readOnly) glClear(GL_COLOR_BUFFER_BIT);
 	uint mipWidth = width, mipHeight = height;
 	if (mip > 0) {
-		mipWidth = width * std::pow(0.5, mip);
-		mipHeight = height * std::pow(0.5, mip);
+		mipWidth = width * pow(0.5, mip);
+		mipHeight = height * pow(0.5, mip);
 	}
 	glViewport(0, 0, mipWidth, mipHeight);
 }

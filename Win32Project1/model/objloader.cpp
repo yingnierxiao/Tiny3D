@@ -22,7 +22,7 @@ void ObjLoader::readObjInfo() {
 	ifstream infile(objFilePath.data());
 	string sline;
 
-	while(getline(infile,sline)) {//从指定文件逐行读取
+	while(getline(infile,sline)) {//浠庢寚瀹氭枃浠堕�愯璇诲彇
 		if(sline[0]=='v') {
 			if(sline[1]=='n')
 				vnCount++;
@@ -101,11 +101,11 @@ void ObjLoader::readObjFile() {
 		} else if(sline[0]=='f') { //f
 			istringstream ins(sline);
 			float a;
-			ins>>s1;//去掉f
+			ins>>s1;//鍘绘帀f
 			int i,k;
 			for(i=0;i<3;i++) {
 				ins>>s1;
-				//取出第一个顶点和法线索引
+				//鍙栧嚭绗竴涓《鐐瑰拰娉曠嚎绱㈠紩
 				a=0;
 				for(k=0;s1[k]!='/';k++)
 					a=a*10+(s1[k]-48);
